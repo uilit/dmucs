@@ -64,37 +64,37 @@ available machine, every time.  The system has these fine qualities:
 
 ## ![DMUCS](images/dmucs-logo-small.gif) Installing DMUCS
 
-* Get the latest version of DMUCS (0.6.1) from 
-  [here](https://github.com/stephengaito/dmucs).
+1. Get the latest version of DMUCS (0.6.1) from 
+   [here](https://github.com/stephengaito/dmucs).
 
-* dmucs installs using the standard `configure`, `make`, and `make install` 
-  steps.
+2. dmucs installs using the standard `configure`, `make`, and `make install` 
+   steps.
 
-* Run configure. You may wish to use the `-–prefix` argument to `configure`
-  if you don’t want the executables, documentation, and configuration files
-  to be installed under `/usr/local`.  Specifically, the `-–prefix`
-  argument will tell dmucs where to go to look for the hosts-info file
-  (`/usr/local/share/dmucs/hosts-info`, by default).
+3. Run `configure`. You may wish to use the `-–prefix` argument to `configure`
+   if you don’t want the executables, documentation, and configuration files
+   to be installed under `/usr/local`.  Specifically, the `-–prefix`
+   argument will tell dmucs where to go to look for the hosts-info file
+   (`/usr/local/share/dmucs/hosts-info`, by default).
 
-* Run make `CPPFLAGS=-DSERVER_MACH_NAME=”<machine-name>”`, where 
-  `<machine-name>` is where you have chosen to run the dmucs server.  NOTE: 
-  this machine does not have to be a powerful machine – I’ve used a very 
-  wimpy Sun Ultra 5 very successfully.
+4. Run `make CPPFLAGS=-DSERVER_MACH_NAME=”<machine-name>”`, where 
+   `<machine-name>` is where you have chosen to run the dmucs server.  NOTE: 
+   this machine does not have to be a powerful machine – I’ve used a very 
+   wimpy Sun Ultra 5 very successfully.
 
-* Run make install.
+5. Run `make install`.
 
-* Make sure you have your compilers in place on each host.  They must all 
-  be found in the same directory on every compilation host.  Also, make 
-  sure you have in place the distcc executables (distcc and distccd, at 
-  least).
+6. Make sure you have your compilers in place on each host.  They must all 
+   be found in the same directory on every compilation host.  Also, make 
+   sure you have in place the distcc executables (distcc and distccd, at 
+   least).
 
-* Make sure the loadavg executable can be accessed and executed on each 
-  host.
+7. Make sure the loadavg executable can be accessed and executed on each 
+   host.
 
-* Make sure the dmucs executable can be accessed and executed on the 
-  machine you have chosen as your server machine.
+8. Make sure the dmucs executable can be accessed and executed on the 
+   machine you have chosen as your server machine.
 
-*   Create a hosts-info file in the location
+9.  Create a hosts-info file in the location
     `/usr/local/share/dmucs/hosts-info` (or, if you specified `–-prefix` when 
     `configure`ing, in `<prefix>/share/dmucs/hosts-info`).  Here is a sample 
     hosts-info file:
@@ -118,23 +118,23 @@ available machine, every time.  The system has these fine qualities:
     assume each machine has only 1 cpu.  (More information on how to choose 
     power indices is given below.)
 
-* Go to your host server machine and install and start up the dmucs 
-  executable.
+10. Go to your host server machine and install and start up the dmucs 
+    executable.
  
-* Go to each compilation host machine and run `loadavg` and start up the 
-  `distccd` daemons (if you are using `distccd`).  The output from the 
-  dmucs executable should show each host being registered.  (Alternatively, 
-  you can use the shell script enable-host found in the dmucs/scripts 
-  directory.  This will start up the `loadavg` and `distccd` programs on 
-  the host machine.)
+11. Go to each compilation host machine and run `loadavg` and start up the 
+   `distccd` daemons (if you are using `distccd`).  The output from the 
+   dmucs executable should show each host being registered.  (Alternatively, 
+   you can use the shell script enable-host found in the dmucs/scripts 
+   directory.  This will start up the `loadavg` and `distccd` programs on 
+   the host machine.)
 
-* In your Makefiles (or Construct or SConstruct files), make each 
-  compilation line look like this:
+12. In your Makefiles (or Construct or SConstruct files), make each 
+    compilation line look like this:
 
-    gethost distcc gcc ...
+        gethost distcc gcc ...
 
-* Run your build script and see the compilations being farmed out to the 
-  fastest available compilation machines in your network.
+13. Run your build script and see the compilations being farmed out to the 
+    fastest available compilation machines in your network.
 
 ## ![DMUCS](images/dmucs-logo-small.gif) Tips and Tricks
 
