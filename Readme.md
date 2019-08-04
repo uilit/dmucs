@@ -179,5 +179,10 @@ available machine, every time.  The system has these fine qualities:
   its internal database.  No more compilations will be assigned to the host 
   until its load average comes back down, and dmucs moves the machine back to 
   its original tier.
+
+### ![DMUCS](images/dmucs-logo-small.gif) Origin:
  
-Original Author: Victor Norman
+* Original Author: Victor Norman
+* Original Repository: [DMUCS on 
+  SourceForge](https://sourceforge.net/projects/dmucs/)
+* Original Website: [DMUCS](http://dmucs.sourceforge.net/)
