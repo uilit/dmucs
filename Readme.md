@@ -182,7 +182,8 @@ available machine, every time.  The system has these fine qualities:
 
 ### ![DMUCS](images/dmucs-logo-small.gif) Origin:
  
-* Original Author: Victor Norman
+* Original Author: [Victor 
+  Norman](https://sourceforge.net/u/userid-1399635/)
 * Original Repository: [DMUCS on 
   SourceForge](https://sourceforge.net/projects/dmucs/)
 * Original Website: [DMUCS](http://dmucs.sourceforge.net/)
