@@ -3,12 +3,20 @@
 .deps
 stamp-h1
 autom4te.cache
+config.log
 
 # GCC/Clang object files
 *.o
 *.lo
 *.la
 .libs
+
+# DMUCS executables
+dmucs
+gethost
+loadavg
+monitor
+remhost
 
 # Editor backups
 *~

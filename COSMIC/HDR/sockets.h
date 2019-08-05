@@ -431,16 +431,16 @@ unsigned long Speeraddr(Socket *);                                              
 char *Speername(Socket *);                                                                                          /* Speername.c     */
 int Sprintf( Socket *, char *, ...);                                                                                /* Sprintf.c       */
 char *Sprtskt(Socket *);                                                                                            /* Sprtskt.c       */
-void Sputs( char *, Socket *);                                                                                      /* Sputs.c         */
+void Sputs( const char *, Socket *);                                                                                      /* Sputs.c         */
 int Sread( Socket *,  void *,  int);                                                                                /* Sread.c         */
 int Sreadbytes( Socket *,  void *,  int);                                                                           /* Sreadbytes.c    */
 SKTEVENT Srmsrvr(char *);                                                                                           /* Srmsrvr.c       */
 int Sscanf(Socket *,char *,...);                                                                                    /* Sscanf.c        */
 int Stest(Socket *);                                                                                                /* Stest.c         */
 int Stimeoutwait(Socket *,long,long);                                                                               /* Stimeoutwait.c  */
-int Svprintf( Socket *, char *, void *);                                                                            /* Svprintf.c      */
+int Svprintf( Socket *, char *, va_list);                                                                            /* Svprintf.c      */
 int Swait(Socket *);                                                                                                /* Swait.c         */
-int Swrite( Socket *,  void *,  int);                                                                               /* Swrite.c        */
+int Swrite( Socket *,  const void *,  int);                                                                               /* Swrite.c        */
 #else
 /* XTDIO: SKTS routines */
 extern Socket *Saccept();                                                                                           /* Saccept.c       */

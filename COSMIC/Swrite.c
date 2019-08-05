@@ -27,7 +27,7 @@
 #ifdef __PROTOTYPE__
 int Swrite(
 	   Socket *skt,		/* socket handle			*/
-	   void   *buf,		/* socket character buffer	*/
+	   const void   *buf,		/* socket character buffer	*/
 	   int     buflen)	/* length of buffer			*/
 #else
 int Swrite(
@@ -35,7 +35,7 @@ int Swrite(
 	       buf,				/* socket character buffer	*/
 	       buflen)			/* length of buffer			*/
 Socket *skt;
-void   *buf;
+const void   *buf;
 int     buflen;
 #endif
 {

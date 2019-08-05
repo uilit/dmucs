@@ -32,12 +32,12 @@
 int Svprintf(
   Socket *skt,
   char   *fmt,
-  void   *args)
+  va_list args)
 #else
 int Svprintf(skt,fmt,args)
 Socket *skt;
 char   *fmt;
-void   *args;
+va_list args;
 #endif
 {
 int         ret;
@@ -52,7 +52,7 @@ if(!skt) {
 #ifdef AS400
 ret= vsprintf(buf,fmt,__va_list args);
 #else
-ret= vsprintf(buf,fmt,(char *) args);
+ret= vsprintf(buf,fmt,args);
 #endif
 Swrite(skt,buf,strlen(buf)+1);	/* send the null byte, too */
 
