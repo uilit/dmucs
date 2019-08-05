@@ -39,20 +39,20 @@ rm -rf \
 echo ""
 echo Running libtoolize
 
-#libtoolize
+libtoolize
 
 echo ""
 echo First run of autoreconf
 echo "  expect --add-missing messages"
 
-#autoreconf
+autoreconf
 
 echo ""
 echo Add missing AutoTool files
 
-#automake --add-missing
+automake --add-missing
 
 echo ""
 echo Second run of autoreconf
 
-#autoreconf
+autoreconf
