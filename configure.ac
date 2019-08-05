@@ -5,9 +5,12 @@ AM_INIT_AUTOMAKE([-Wall -Werror])
 AC_CONFIG_SRCDIR([dmucs_msg.h])
 AC_CONFIG_HEADERS([config.h])
 
+AC_CONFIG_MACRO_DIRS([m4])
+
 # Checks for programs.
 AC_PROG_CXX
 AC_PROG_CC
+AM_PROG_AR
 AC_PROG_LIBTOOL
 
 # Checks for libraries.
@@ -87,7 +90,7 @@ AC_CHECK_FUNC(gethostbyaddr_r, [
 dnl FreeBSD -pthread check - Jonathan McDowell
 AC_DEFUN([AC_PTHREAD_FREEBSD],
  [AC_MSG_CHECKING([if we need -pthread for threads])
-          AC_CACHE_VAL(ac_ldflag_pthread,
+          AC_CACHE_VAL(ac_cv_ldflag_pthread,
                        [ac_save_LDFLAGS="$LDFLAGS"
                         LDFLAGS="-pthread $LDFLAGS"
                         AC_TRY_LINK([char pthread_create();],

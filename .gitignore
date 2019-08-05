@@ -1,2 +1,16 @@
+
+# AutoTools / configure / make files which are auto-generated
+.deps
+stamp-h1
+autom4te.cache
+
+# GCC/Clang object files
+*.o
+*.lo
+*.la
+.libs
+
+# Editor backups
+*~
 *.swp
 
