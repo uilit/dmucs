@@ -318,7 +318,7 @@ char *sktname;
 #ifdef SSLSKTZERO
         close(skt->skt); skt->skt= 0;
 #else
-        close(skt->skt); skt->skt= (int) NULL;
+        close(skt->skt); skt->skt= (intptr_t) NULL;
 #endif
         freeSocket(skt);
         return (Socket *) NULL;
@@ -387,7 +387,7 @@ char *sktname;
 #ifdef SSLSKTZERO
     pmskt->skt= 0;
 #else
-    pmskt->skt= (int) NULL;
+    pmskt->skt= (intptr_t) NULL;
 #endif
   }
 

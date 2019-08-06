@@ -97,7 +97,7 @@ DmucsMsg::parseMsg(Socket *sock, const char *buffer)
 		machname, state, dpropstr);
 	struct in_addr host;
 	host.s_addr = inet_addr(machname);
-	host_status_t status;
+	host_status_t status = STATUS_AVAILABLE;
 	if (strncmp(state, "up", 2) == 0) {
 	    status = STATUS_AVAILABLE;
 	} else if (strncmp(state, "down", 4) == 0) {

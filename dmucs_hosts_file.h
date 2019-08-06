@@ -24,11 +24,11 @@
 #include <map>
 #include <string>
 
-#ifdef PKGDATADIR
-const std::string HOSTS_INFO_FILE = std::string(PKGDATADIR) + \
-	std::string("/") + std::string("hosts-info");
+#ifdef SYSCONFDIR
+const std::string HOSTS_INFO_FILE = std::string(SYSCONFDIR) + \
+	std::string("/") + std::string("dmucs.conf");
 #else
-const std::string HOSTS_INFO_FILE = "hosts-info";
+const std::string HOSTS_INFO_FILE = "dmucs.conf";
 #endif
 
 

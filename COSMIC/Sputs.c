@@ -20,13 +20,13 @@
 /* Sputs: */
 #ifdef __PROTOTYPE__
 void Sputs(
-  char   *buf,
+  const char   *buf,
   Socket *skt)
 #else
 void Sputs(
   buf,
   skt)
-char   *buf;
+const char   *buf;
 Socket *skt;
 #endif
 {

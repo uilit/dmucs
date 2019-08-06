@@ -20,3 +20,7 @@ remhost_SOURCES = remhost.cc
 #
 AM_CPPFLAGS = -DPKGDATADIR=\"${pkgdatadir}\"
 
+#
+# Allow local automake macros
+#
+ACLOCAL_AMFLAGS = -I m4

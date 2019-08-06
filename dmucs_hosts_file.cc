@@ -43,8 +43,8 @@ DmucsHostsFile *DmucsHostsFile::getInstance(const std::string &file)
 
 
 DmucsHostsFile::DmucsHostsFile(const std::string &hostsInfoFile) :
-    lastFileChangeTime_(0),
-    hostsInfoFile_(hostsInfoFile)
+    hostsInfoFile_(hostsInfoFile),
+    lastFileChangeTime_(0)
 {
     readFileIntoDb();
     /* We know the file has changed since time 0 -- so just call this

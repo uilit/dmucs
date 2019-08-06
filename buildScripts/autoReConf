@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# This bash script:
+#   * removes the auto-generated AutoTools files
+#   * runs libtoolize
+#   * runs automake --add-missing
+#   * runs autoreconf
+
+echo Cleaning out old auto-generated AutoTools files
+
+rm -rf \
+  autom4te.cache \
+  config.h.in~ \
+  COSMIC/Makefile.in \
+  COSMIC/Makefile \
+  Makefile.in \
+  Makefile \
+  aclocal.m4 \
+  ar-lib \
+  compile \
+  config.guess \
+  config.h \
+  config.log \
+  config.status \
+  config.sub \
+  configure \
+  depcomp \
+  install-sh \
+  libtool \
+  ltmain.sh \
+  m4/libtool.m4 \
+  m4/lt~obsolete.m4 \
+  m4/ltoptions.m4 \
+  m4/ltsugar.m4 \
+  m4/ltversion.m4 \
+  missing \
+  stamp-h1
+
+echo ""
+echo Running libtoolize
+
+libtoolize
+
+echo ""
+echo First run of autoreconf
+echo "  expect --add-missing messages"
+
+autoreconf
+
+echo ""
+echo Add missing AutoTool files
+
+automake --add-missing
+
+echo ""
+echo Second run of autoreconf
+
+autoreconf

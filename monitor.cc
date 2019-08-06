@@ -288,7 +288,10 @@ parseResults(const char *resultStr)
                 } else {
                   hname = he->h_name;
                   /* Remove domain name from end of hostname. */
-                  hname.erase(hname.find_first_of('.'));
+                  size_t pos = hname.find_first_of('.');
+                  if (pos != std::string::npos) {
+                    hname.erase(pos);
+                  }
                 }
 		std::ostringstream hostname;
 		hostname << hname;
