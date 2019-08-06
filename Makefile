@@ -392,9 +392,9 @@ monitor_SOURCES = monitor.cc
 remhost_SOURCES = remhost.cc
 
 #
-# Make -DPKGDATADIR=<pkgdatadir> be passed on each compile.
+# Ensure -DSYSCONFDIR=<sysconfigdir> is passed on each compile.
 #
-AM_CPPFLAGS = -DPKGDATADIR=\"${pkgdatadir}\"
+AM_CPPFLAGS = -DSYSCONFDIR=\"${sysconfdir}\"
 
 #
 # Allow local automake macros
