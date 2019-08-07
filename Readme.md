@@ -74,32 +74,36 @@ available machine, every time.  The system has these fine qualities:
    if you don’t want the executables, documentation, and configuration files
    to be installed under `/usr/local`.  Specifically, the `-–prefix`
    argument will tell dmucs where to go to look for the hosts-info file
-   (`/usr/local/share/dmucs/hosts-info`, by default).
+   (`/usr/local/etc/dmucs.conf`, by default).
 
 4. Run `make CPPFLAGS=-DSERVER_MACH_NAME=”<machine-name>”`, where 
    `<machine-name>` is where you have chosen to run the dmucs server.  NOTE: 
    this machine does not have to be a powerful machine – I’ve used a very 
    wimpy Sun Ultra 5 very successfully.
 
-5. Run `make install`.
+5. Run `sudo make install` to install the DMUCS executables.
 
-6. Make sure you have your compilers in place on each host.  They must all 
+6. Run `sudo ldconfig` to ensure the newly installed `libsimpleskts.so` 
+   shared library (required by the DMUCS executables) can be found by the 
+   system loader.
+
+7. Make sure you have your compilers in place on each host.  They must all 
    be found in the same directory on every compilation host.  Also, make 
    sure you have in place the distcc executables (distcc and distccd, at 
    least).
 
-7. Make sure the loadavg executable can be accessed and executed on each 
+8. Make sure the loadavg executable can be accessed and executed on each 
    host.
 
-8. Make sure the dmucs executable can be accessed and executed on the 
+9. Make sure the dmucs executable can be accessed and executed on the 
    machine you have chosen as your server machine.
 
-9.  Create a hosts-info file in the location
-    `/usr/local/share/dmucs/hosts-info` (or, if you specified `–-prefix` when 
-    `configure`ing, in `<prefix>/share/dmucs/hosts-info`).  Here is a sample 
-    hosts-info file:
+10.  Create a hosts-info file in the location
+     `/usr/local/etc/dmucs.conf` (or, if you specified `–-prefix`
+     when `configure`ing, in `<prefix>/etc/dmucs.conf`).  Here is a
+     sample hosts-info file:
 
-    ```
+     ```
         # Format: machine number-of-cpus power-index
         linux-comp-1       4         10
         solaris-comp-1     2         5
@@ -107,34 +111,37 @@ available machine, every time.  The system has these fine qualities:
         old-linux-comp-1   1         4
         old-solaris-comp-3 1         2
         169.144.80.25      1         2
-    ```
+     ```
 
-    As you can see, the format is simple: each line is a host's name, then 
-    the number of cpus on that machine, and then the "power index" of that 
-    machine.  If you know that some machines are much more powerful than 
-    others, then give them higher power indices.  The value must be >= 1. 
-    If you don't want to bother with a hosts-info file, the system will 
-    still work, but all machines will be treated equally, and the code will 
-    assume each machine has only 1 cpu.  (More information on how to choose 
-    power indices is given below.)
+     As you can see, the format is simple: each line is a host's name, then
+     the number of cpus on that machine, and then the "power index" of that
+     machine.  If you know that some machines are much more powerful than
+     others, then give them higher power indices.  The value must be >= 1.
+     If you don't want to bother with a hosts-info file, the system will
+     still work, but all machines will be treated equally, and the code 
+     will assume each machine has only 1 cpu.  (More information on how to 
+     choose power indices is given below.)
 
-10. Go to your host server machine and install and start up the dmucs 
+11. Go to your host server machine and install and start up the dmucs 
     executable.
  
-11. Go to each compilation host machine and run `loadavg` and start up the 
+12. Go to each compilation host machine and run `loadavg` and start up the 
    `distccd` daemons (if you are using `distccd`).  The output from the 
    dmucs executable should show each host being registered.  (Alternatively, 
    you can use the shell script enable-host found in the dmucs/scripts 
    directory.  This will start up the `loadavg` and `distccd` programs on 
    the host machine.)
 
-12. In your Makefiles (or Construct or SConstruct files), make each 
+13. In your Makefiles (or Construct or SConstruct files), make each 
     compilation line look like this:
 
         gethost distcc gcc ...
 
-13. Run your build script and see the compilations being farmed out to the 
+14. Run your build script and see the compilations being farmed out to the 
     fastest available compilation machines in your network.
+
+See [Setting up DMUCS as services](systemd/Readme.md) for additional 
+details on how to setup DMUCS as services.
 
 ## ![DMUCS](images/dmucs-logo-small.gif) Tips and Tricks
 

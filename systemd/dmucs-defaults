@@ -1,0 +1,29 @@
+#
+# DMUCS – a Distributed Multi-User Compilation System 
+#
+# This file sets the default options for the DMUCS collection of services
+
+# DMUCS request server defaults.
+#
+# Add any required DMUCS request server options to the "DMUCS_OPTIONS" 
+# environment variable below.
+#
+# For example to have the DMUCS request server listen on a different port, 
+# "12345", edit the "DMUCS_OPTIONS" environment variable to look like:
+#
+# DMUCS_OPTIONS= --port 12345
+# 
+DMUCS_OPTIONS=
+
+# Load average server defaults.
+#
+# Add any required DMUCS loadavg options to the "LOADAVG_OPTIONS" 
+# environment variable below.
+#
+# For example to specify that the load average reports should go to a DMUCS 
+# request server located on a different host, "yourDMUCSServer", edit the 
+# "LOADAVG_OPTIONS" environment variable to look like:
+#
+# LOADAVG_OPTIONS= --server yourDMUCSServer
+#
+LOADAVG_OPTIONS=

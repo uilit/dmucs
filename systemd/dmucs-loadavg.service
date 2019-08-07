@@ -1,0 +1,13 @@
+[Unit]
+Description=DMUCS – a Distributed Multi-User Compilation System (load average server)
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nogroup
+EnvironmentFile=-/etc/default/dmucs
+ExecStart=/usr/local/bin/loadavg $LOADAVG_OPTIONS
+
+[Install]
+WantedBy=multi-user.target

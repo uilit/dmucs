@@ -1,0 +1,13 @@
+[Unit]
+Description=DMUCS – a Distributed Multi-User Compilation System (Request Server)
+After=network.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nogroup
+EnvironmentFile=-/etc/default/dmucs
+ExecStart=/usr/local/bin/dmucs $DMUCS_OPTIONS
+
+[Install]
+WantedBy=multi-user.target
