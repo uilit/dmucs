@@ -136,6 +136,9 @@ available machine, every time.  The system has these fine qualities:
 13. Run your build script and see the compilations being farmed out to the 
     fastest available compilation machines in your network.
 
+See [Setting up DMUCS as services](systemd/Readme.html) for additional 
+details on how to setup DMUCS as services.
+
 ## ![DMUCS](images/dmucs-logo-small.gif) Tips and Tricks
 
 * If you are having problems getting DMUCS to work, first make sure that 
