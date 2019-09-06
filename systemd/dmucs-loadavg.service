@@ -8,6 +8,8 @@ User=nobody
 Group=nogroup
 EnvironmentFile=-/etc/default/dmucs
 ExecStart=/usr/local/bin/loadavg $LOADAVG_OPTIONS
+ExecStartPost=/usr/local/bin/addhost $LOADAVG_OPTIONS
+ExecStop=/usr/local/bin/remhost $LOADAVG_OPTIONS
 
 [Install]
 WantedBy=multi-user.target
