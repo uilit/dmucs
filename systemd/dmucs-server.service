@@ -1,6 +1,7 @@
 [Unit]
 Description=DMUCS – a Distributed Multi-User Compilation System (Request Server)
-After=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=simple
@@ -11,3 +12,4 @@ ExecStart=/usr/local/bin/dmucs $DMUCS_OPTIONS
 
 [Install]
 WantedBy=multi-user.target
+WantedBy=dmucs-loadavg.service
