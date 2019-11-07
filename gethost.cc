@@ -31,6 +31,7 @@
 #include <sys/wait.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <string.h> // strdup
 #include <string>
 #include <sstream>
 #include <errno.h>
@@ -219,7 +220,8 @@ main(int argc, char *argv[])
     std::ostringstream tmp;
     tmp << "DISTCC_HOSTS=" << resolved_name;
     DMUCS_DEBUG((stderr, "tmp is -->%s<--\n", tmp.str().c_str()));
-    if (putenv((char *) tmp.str().c_str()) != 0) {
+    // added strdup to solve issue #34
+    if (putenv(strdup(tmp.str().c_str())) != 0) {
 	fprintf(stderr, "Error putting DISTCC_HOSTS in the environment\n");
 	Sclose(client_sock);
 	return -1;
