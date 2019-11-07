@@ -65,7 +65,7 @@ available machine, every time.  The system has these fine qualities:
 ## ![DMUCS](images/dmucs-logo-small.gif) Installing DMUCS
 
 1. Get the latest version of DMUCS (0.6.1) from 
-   [here](https://github.com/stephengaito/dmucs).
+   [here](https://github.com/dmucs/dmucs).
 
 2. dmucs installs using the standard `configure`, `make`, and `make install` 
    steps.
